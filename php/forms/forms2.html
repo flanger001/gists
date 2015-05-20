@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forms 2</title>
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#birds").submit(function(e){
+        e.preventDefault();
+        alert($("#birds input[name='species']").val());
+      });
+    });
+  </script>
+</head>
+<body>
+
+<p>// jQuery</p>
+
+<form name="birds" id="birds">
+  <input type="text" name="species">
+  <input type="submit">
+</form>
+
+</body>
+</html>

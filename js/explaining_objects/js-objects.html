@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS objects</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script type="text/javascript">
+  var App = {
+    firstP: "Eat a hot dog.",
+    secondP: "Eat 2 hot dogs."
+  };
+  $(document).ready(function(){
+    $("button").click(function(){
+      var toEnter = $(this).data("paragraph");
+      $("#page").append($("<p/>", { html: App[toEnter] }));
+    });
+  });
+  </script>
+</head>
+<body>
+  <button data-paragraph="firstP">First</button>
+  <button data-paragraph="secondP">Second</button>
+  <div id="page">
+
+  </div>
+</body>
+</html>

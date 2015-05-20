@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    
+var user = prompt("You wake up in the desert with no recollection of how you got there. You have a choice of three things in front of you: A jug of WATER, a CAMEL, and a CAMERA. What is your choice?").toUpperCase();
+switch(user) {
+    case 'WATER':
+        var drinkAll = prompt("Wise choice! Do you conserve it? (YES or NO)").toUpperCase();
+        var giveWater = prompt("Do you give some to the camel? (YES or NO)").toUpperCase();
+        if (drinkAll === 'YES' && giveWater === 'YES') {
+            document.write("Both you and the camel survive until help arrives. You are awarded for your kindness.");
+        } else if (drinkAll === 'NO' && giveWater === 'NO') {
+            document.write("You and the camel both die, because you're a greedy asshole.");
+        } else if (drinkAll === 'YES' && giveWater === 'NO') {
+            document.write("You survive, but watch the camel run off into the distance, because you wouldn't give it water.");
+        } else {
+            document.write("Because you nourished the camel, you are able to ride through the desert until you find a beautiful oasis.");
+        }
+        break;
+    case 'CAMEL':
+        var nice = prompt("How fortunate! Is the camel nice? (YES or NO)").toUpperCase();
+        var ride = prompt("Do you know how to ride a camel? (YES or NO)").toUpperCase();
+        if (nice === 'YES' && ride === 'YES') {
+            document.write("You and the camel ride off into the sunset towards safety.");
+        } else if (nice === 'NO' && ride === 'NO') {
+            document.write("You spend so much energy trying to poorly mount this ornery camel that you pass out from exhaustion and die a horrible horrible death.");
+        } else {
+            document.write("It's a bumpy ride, but you both manage to make it to a caravan...of bandits. Damn. Maybe you should have been more quiet...");
+        }    
+        break;
+    case 'CAMERA':
+        var film = prompt("Is there a lot of film? (YES or NO)").toUpperCase();
+        var time = prompt("Do you have time to take some pictures? (YES or NO)").toUpperCase();
+        if (film === 'YES' && time === 'YES') {
+            document.write("Pretty stupid to pick a camera over a camel. Might as well take some selfies of your impending death!");
+        } else if (film === 'NO' || time === 'NO') {
+            document.write("Well, stop wasting film on your ugly ass-face and start walking to find help!");
+        } else {
+            document.write("Well, you did pick a camera. You're going to die no matter what. Hope you get some great shots!");
+        }
+        break;
+    default:
+        document.write("I don't understand your answer. HURRY! Before you die in the desert!");
+}
+</script>
+</body>
+</html>

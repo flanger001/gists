@@ -1,0 +1,64 @@
+/*
+* {
+  border: 0px solid black;
+}*/
+/*
+  There are a lot of :first-child selectors here.
+  They are insanely useful for this kind of thing!
+*/
+
+table, tr, th, td {
+  text-align: center;
+}
+tr {
+  height: 100px;
+}
+tr:first-child {
+  height: 1em;
+}
+td {
+
+}
+.suggestion-box {
+  width: 70%;
+  margin: 50px auto;
+}
+.entry {
+
+}
+.number {
+  display: none;
+}
+.vote {
+  width: 112px;
+}
+.vote > div {
+  width: 70px;
+}
+.vote:active {
+  opacity: 0.7;
+}
+.votebutton {
+  width: 112px;
+  height: 74px;
+}
+.count {
+  font-size: 2em;
+  line-height: 1em;
+}
+.suggestion, .number {
+  vertical-align: text-middle;
+}
+.thanksvote {
+  font-size: 0.8em;
+  text-align: center;
+}
+th:first-child {
+  display: none;
+}
+.response:first-child {
+  font-weight: bold;
+}
+input[name="admin_response"] {
+  width: 70%;
+}

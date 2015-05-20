@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forms 1</title>
+</head>
+<body>
+
+<p>// Vanilla JS</p>
+
+<form name="birds">
+  <input type="text" name="species">
+  <input type="submit">
+</form>
+
+<script type="text/javascript">
+  var x = document.forms.birds; // document.forms.{form name}
+  document.forms.birds.onsubmit = function() { // submit action handler
+    alert(x.species.value); // {form object}.{input name}
+    return false;
+  };
+</script>
+
+</body>
+</html>
