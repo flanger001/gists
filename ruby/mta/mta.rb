@@ -35,7 +35,7 @@ module MTA
       lines[leg[:line]].index(leg[:point])
     end
 
-     def same_line
+    def same_line
       (stop_index(start) - stop_index(destination)).abs
     end
 
@@ -48,7 +48,7 @@ module MTA
     def find_line_by_point(point)
       found ||= begin
         @found = ''
-        LINES.each_pair { |k,v| @found = k if v.index(point) }
+        LINES.each { |k,v| @found = k if v.index(point) }
         @found
       end
     end
