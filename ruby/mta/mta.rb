@@ -5,16 +5,18 @@ module MTA
     s: ['gc', '33rd', '28th-s', '23rd-s', 'us']
   }
 
+  Stop = Struct.new(:line, :point)
+
   class Route
-    attr_accessor :start, :destination, :stops
+    attr_accessor :start, :destination, :stops, :information
 
     def initialize(start, destination)
-      @start = { line: find_line_by_point(start), point: start }
-      @destination = { line: find_line_by_point(destination), point: destination }
+      @start = Stop.new(find_line_by_point(start), start)
+      @destination = Stop.new(find_line_by_point(destination), destination)
     end
 
     def stops
-      start[:line] == destination[:line] ? same_line : different_line
+      switches_lines? ? different_line : same_line
     end
 
     private
@@ -23,16 +25,20 @@ module MTA
       LINES
     end
 
+    def switches_lines?
+      start.line != destination.line
+    end
+
     def connector
       'us'
     end
 
     def connector_index(leg)
-      lines[leg[:line]].index(connector)
+      lines[leg.line].index(connector)
     end
 
     def stop_index(leg)
-      lines[leg[:line]].index(leg[:point])
+      lines[leg.line].index(leg.point)
     end
 
     def same_line
@@ -48,7 +54,7 @@ module MTA
     def find_line_by_point(point)
       found ||= begin
         @found = ''
-        LINES.each { |k,v| @found = k if v.index(point) }
+        lines.each { |k,v| @found = k if v.index(point) }
         @found
       end
     end
@@ -64,3 +70,6 @@ puts a.destination
 
 b = MTA::Route.new("gc", "8th")
 puts b.stops
+
+c = MTA::Route.new("gc", "23rd-n")
+puts c.stops
